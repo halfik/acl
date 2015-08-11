@@ -2,8 +2,9 @@
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
+use Netinteractive\Acl\Providers\Auth\Basic;
 
-class AclServiceProvider extends ServiceProvider {
+class AuthServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -20,9 +21,6 @@ class AclServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../../resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
-        ], 'config');
 
     }
 
@@ -33,13 +31,13 @@ class AclServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        $this->app->singleton('ni.acl', function () {
-            return new Acl();
+        $this->app->bind('ni.acl.auth.provider', function () {
+            return new Basic();
         });
 
         $this->app->booting(function()
         {
-            AliasLoader::getInstance()->alias('Acl','Netinteractive\Combiner\Facades\AclFacade');
+            AliasLoader::getInstance()->alias('AuthProvider','Netinteractive\Combiner\Facades\AuthFacade');
         });
 	}
 

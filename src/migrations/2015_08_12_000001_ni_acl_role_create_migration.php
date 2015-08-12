@@ -24,8 +24,6 @@ class NiAclRoleCreateMigration extends Migration {
             ));
 
 
-
-
 		});
 	}
 

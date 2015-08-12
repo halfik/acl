@@ -4,6 +4,6 @@ use Illuminate\Support\Facades\Facade;
 
 class RegisterFacade extends Facade {
 
-    protected static function getFacadeAccessor() { return 'register'; }
+    protected static function getFacadeAccessor() { return 'ni.acl.register.provider'; }
 
 }

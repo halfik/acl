@@ -59,7 +59,7 @@ class AclServiceProvider extends ServiceProvider {
 
         $this->app->booting(function()
         {
-            AliasLoader::getInstance()->alias('Acl','Netinteractive\Combiner\Facades\AclFacade');
+            AliasLoader::getInstance()->alias('Acl','Netinteractive\Acl\Facades\AclFacade');
         });
 	}
 

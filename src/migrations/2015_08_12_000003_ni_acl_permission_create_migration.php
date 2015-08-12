@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NiAclUserRolePermissionCreateMigration extends Migration {
+class NiAclPermissionCreateMigration extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -28,7 +28,7 @@ class NiAclUserRolePermissionCreateMigration extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('user__role');
+        Schema::drop('permission');
 	}
 
 }

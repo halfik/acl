@@ -17,13 +17,13 @@ class NiAclRoleCreateMigration extends Migration {
             $table->increments('id');
             $table->string('name');
 
-            /**@var $user \Netinteractive\Acl\User\Record*/
-            $user=App('ni.acl.user');
-            $user->fill(array(
-                'login'=>'admin',
-                'email'=>'admin@netinteractive.pl',
-                'password'=>'admin'
+            /**@var $user \Netinteractive\Acl\Role\Record*/
+            $role=App('ni.acl.role');
+            $role->fill(array(
+                'name'=>'admin'
             ));
+
+
 
 
 		});

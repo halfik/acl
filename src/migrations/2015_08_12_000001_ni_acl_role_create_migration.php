@@ -16,19 +16,11 @@ class NiAclRoleCreateMigration extends Migration {
 		{
             $table->increments('id');
             $table->string('name');
-
-            /**@var $user \Netinteractive\Acl\Role\Record*/
-            $role=App('ni.acl.role');
-            $role->fill(array(
-                'name'=>'admin'
-            ));
-
-            $roleMapper=\Acl::getRoleMapper();
-
-            $roleMapper->save($roleMapper->createRecord(array('name'=>'admin')));
-            $roleMapper->save($roleMapper->createRecord(array('name'=>'guest')));
-
 		});
+
+        $roleMapper=\Acl::getRoleMapper();
+        $roleMapper->save($roleMapper->createRecord(array('name'=>'admin')));
+        $roleMapper->save($roleMapper->createRecord(array('name'=>'guest')));
 	}
 
 	/**

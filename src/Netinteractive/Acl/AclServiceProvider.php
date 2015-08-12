@@ -25,11 +25,11 @@ class AclServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
+            __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../database/migrations/' => base_path('/database/migrations')
+            __DIR__.'/../../migrations/' => base_path('/database/migrations')
         ], 'migrations');
 
     }

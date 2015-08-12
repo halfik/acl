@@ -23,6 +23,10 @@ class NiAclRoleCreateMigration extends Migration {
                 'name'=>'admin'
             ));
 
+            $roleMapper=\Acl::getRoleMapper();
+
+            $roleMapper->save($roleMapper->createRecord(array('name'=>'admin')));
+            $roleMapper->save($roleMapper->createRecord(array('name'=>'guest')));
 
 		});
 	}

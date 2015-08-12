@@ -105,6 +105,14 @@ class Acl{
         return $this->userMapper;
     }
 
+    public function getRoleMapper(){
+        return $this->roleMapper;
+    }
+
+    public function getPermissionMapper(){
+        return $this->permissionMapper;
+    }
+
 
     public function register($credentials)
     {

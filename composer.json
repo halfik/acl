@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Netinteractive\\acl\\": "src/"
+            "Netinteractive\\Acl\\": "src/"
         }
     },
     "minimum-stability": "stable"

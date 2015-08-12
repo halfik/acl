@@ -1,13 +1,12 @@
 <?php namespace Netinteractive\Acl\Permission;
 
 use Netinteractive\Elegant\Model\Blueprint AS BaseBluePrint;
-use Netinteractive\Elegant\Search\Searchable;
 
 class Blueprint extends BaseBluePrint
 {
     protected function init()
     {
-        $this->table = 'user';
+        $this->setStorageName('permission');
         $this->primaryKey = array('id');
         $this->incrementingPk = 'id';
 

@@ -101,6 +101,10 @@ class Acl{
         return $this->user;
     }
 
+    public function getUserMapper(){
+        return $this->userMapper;
+    }
+
 
     public function register($credentials)
     {

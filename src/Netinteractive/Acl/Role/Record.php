@@ -7,7 +7,7 @@ class Record extends BaseRecord implements RoleInterface
 {
     public function init()
     {
-        $this->setBlueprint( Blueprint::getInstance() );
+        $this->setBlueprint(Blueprint::getInstance());
         return $this;
     }
 

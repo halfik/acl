@@ -1,13 +1,12 @@
 <?php namespace Netinteractive\Acl\Role;
 
 use Netinteractive\Elegant\Model\Blueprint AS BaseBluePrint;
-use Netinteractive\Elegant\Search\Searchable;
 
 class Blueprint extends BaseBluePrint
 {
     protected function init()
     {
-        $this->table = 'role';
+        $this->setStorageName('role');
         $this->primaryKey = array('id');
         $this->incrementingPk = 'id';
 
@@ -25,7 +24,6 @@ class Blueprint extends BaseBluePrint
                 'title' => _('Nazwa'),
                 'type' => 'string',
                 'sortable' => true,
-                'searchable' => Searchable::text('name'),
                 'rules' => array(
                     'any' => 'required|max:100'
                 ),

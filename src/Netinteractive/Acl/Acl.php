@@ -45,7 +45,16 @@ class Acl{
         $this->userMapper=App::make('ni.elegant.model.mapper.db',array('ni.acl.user'));
         $this->roleMapper=App::make('ni.elegant.model.mapper.db',array('ni.acl.role'));
         $this->permissionMapper=App::make('ni.elegant.model.mapper.db',array('ni.acl.permission'));
-        $this->user=$this->userMapper->where('login','=','guest')->first();
+        if(\Session::get('ni_acl_user')){
+            $this->user=$this->getUserMapper()->where('login','=',Session::get('ni_acl_user'));
+        }
+        if(!$this->user){
+            $this->user=$this->userMapper->where('login','=','guest')->first();
+        }
+        if(!$this->user){
+
+        }
+
     }
 
     public function setUserMapper(MapperInterface $mapper){

@@ -9,8 +9,6 @@ class Blueprint extends BaseBluePrint
         $this->setStorageName('user');
         $this->primaryKey = array('id');
         $this->incrementingPk = 'id';
-        
-
 
         $this->fields = array(
             'id' => array(

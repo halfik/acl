@@ -24,7 +24,7 @@ class AclServiceProvider extends ServiceProvider
 
         $config     = realpath(__DIR__.'/../../config/resources.php');
 
-        $this->mergeConfigFrom($config, 'netinteractive.acl');
+        //$this->mergeConfigFrom($config, 'netinteractive.acl');
 
        /* $this->publishes([
             __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),

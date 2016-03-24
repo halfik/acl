@@ -3,12 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 
 class AclServiceProvider extends ServiceProvider
-{
-
-    protected $commands = [
-        'Netinteractive\Acl\Commands\Grant',
-    ];
-    
+{   
     /**
      * Bootstrap the application services.
      *

@@ -21,22 +21,22 @@ class Route
          */
         $access = false;
         foreach ($roles AS $role){
-            if ( $role->hasAccess($route->getActionName(), false) ){
+            if ( $role->hasAccess( array($route->getActionName()), false) ){
                 $access = true;
                 break;
             }
-            elseif ($role->hasAccess($route->getName(), false)){
+            elseif ($role->hasAccess( array($route->getName()), false)){
                 $access = true;
                 break;
             }
         }
 
         if (!$access){
-            throw new NoAccessException();
+            throw new NoAccessException($route);
         }
 
 
-        \debug($roles[0]->toArray());
+
         return $next($request);
     }
 

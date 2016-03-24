@@ -6,9 +6,8 @@
  */
 class NoAccessException extends \Exception
 {
-    public function __construct($message = "", $code = 0, Exception $previous = null)
+    public function __construct(\Illuminate\Routing\Route $route, $message = "", $code = 0, Exception $previous = null)
     {
-        $route= Route::getCurrentRoute();
         $message.="\ndenied with route ".$route->getUri();
         $message.="\n".$route->getActionName()."[".$route->getName()."]";
         $user = \App::make('sentry')->getUser();

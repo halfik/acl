@@ -3,15 +3,15 @@
 use Illuminate\Support\ServiceProvider;
 
 class AclServiceProvider extends ServiceProvider
-{   
+{
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot(\Illuminate\Routing\Router $router)
+    public function boot()
     {
-        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
+        //
     }
 
     /**

@@ -2,63 +2,36 @@
 
 use Illuminate\Support\ServiceProvider;
 
-
-
 class AclServiceProvider extends ServiceProvider
 {
 
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-
-   /* protected $commands = [
+    protected $commands = [
         'Netinteractive\Acl\Commands\Grant',
-    ];*/
+    ];
 
     /**
-     * Bootstrap the application events.
+     * Bootstrap the application services.
      *
      * @return void
      */
     public function boot(\Illuminate\Routing\Router $router)
     {
-        /*$config = __DIR__.'/../../config/resources.php';
+        $config = __DIR__.'/../../config/resources.php';
 
         $this->mergeConfigFrom(
             $config, 'resources'
         );
 
-
-        $this->publishes([
-            __DIR__.'/../../migrations/' => base_path('/database/migrations')
-        ], 'migrations');
-
-
-        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');*/
+        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 
     /**
-     * Register the service provider.
+     * Register the application services.
      *
      * @return void
      */
     public function register()
     {
-       // $this->commands($this->commands);
+        $this->commands($this->commands);
     }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return array();
-    }
-
 }

@@ -1,14 +1,11 @@
 <?php namespace Netinteractive\Acl;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Foundation\AliasLoader;
-use Netinteractive\Acl\User\Record as User;
-use Netinteractive\Acl\Role\Record as Role;
-use Netinteractive\Acl\Permission\Record as Permission;
 
 
 class AclServiceProvider extends ServiceProvider
 {
+
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -16,7 +13,7 @@ class AclServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
-    
+
     protected $commands = [
         'Netinteractive\Acl\Commands\Grant',
     ];
@@ -28,39 +25,39 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(\Illuminate\Routing\Router $router)
     {
+        /*$config = __DIR__.'/../../config/resources.php';
 
-        $config     = realpath(__DIR__.'/../../config/resources.php');
-
-        //$this->mergeConfigFrom($config, 'netinteractive.acl');
-
-       /* $this->publishes([
-            __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
-        ], 'config');*/
+        $this->mergeConfigFrom(
+            $config, 'resources'
+        );
 
 
+        $this->publishes([
+            __DIR__.'/../../migrations/' => base_path('/database/migrations')
+        ], 'migrations');
 
-        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
+
+        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');*/
     }
 
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+    }
 
     /**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-       // $this->commands($this->commands);
-	}
-
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return array();
+    }
 
 }

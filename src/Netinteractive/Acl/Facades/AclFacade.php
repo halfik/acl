@@ -1,5 +1,4 @@
-<?php
-namespace Netinteractive\Acl\Facades;
+<?php namespace Netinteractive\Acl\Facades;
 use Illuminate\Support\Facades\Facade;
 
 class AclFacade extends Facade {

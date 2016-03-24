@@ -7,7 +7,8 @@ use Netinteractive\Acl\Role\Record as Role;
 use Netinteractive\Acl\Permission\Record as Permission;
 
 
-class AclServiceProvider extends ServiceProvider {
+class AclServiceProvider extends ServiceProvider
+{
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -22,7 +23,7 @@ class AclServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot()
+    public function boot(\Illuminate\Routing\Router $router)
     {
         $this->publishes([
             __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
@@ -32,6 +33,8 @@ class AclServiceProvider extends ServiceProvider {
             __DIR__.'/../../migrations/' => base_path('/database/migrations')
         ], 'migrations');
 
+        echo 55; exit;
+        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 
 	/**

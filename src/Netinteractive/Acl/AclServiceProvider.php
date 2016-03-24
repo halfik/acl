@@ -24,4 +24,3 @@ class AclServiceProvider extends ServiceProvider
         //
     }
 }
-

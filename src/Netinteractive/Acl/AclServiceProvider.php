@@ -4,7 +4,7 @@ use Illuminate\Support\ServiceProvider;
 
 
 
-class AclServiceProvide2r extends ServiceProvider
+class AclServiceProvider extends ServiceProvider
 {
 
     /**

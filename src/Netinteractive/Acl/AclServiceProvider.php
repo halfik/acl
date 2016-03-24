@@ -33,7 +33,7 @@ class AclServiceProvider extends ServiceProvider
             __DIR__.'/../../migrations/' => base_path('/database/migrations')
         ], 'migrations');
 
-        echo 55; exit;
+
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 

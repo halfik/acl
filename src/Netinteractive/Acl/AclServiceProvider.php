@@ -43,7 +43,7 @@ class AclServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-        $this->commands($this->commands);
+       // $this->commands($this->commands);
 	}
 
 	/**

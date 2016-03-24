@@ -4,11 +4,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AclServiceProvider extends ServiceProvider
 {
-
-    protected $commands = [
-        'Netinteractive\Acl\Commands\Grant',
-    ];
-
     /**
      * Bootstrap the application services.
      *
@@ -16,12 +11,6 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(\Illuminate\Routing\Router $router)
     {
-        $config = __DIR__.'/../../config/resources.php';
-
-        $this->mergeConfigFrom(
-            $config, 'resources'
-        );
-
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 
@@ -32,6 +21,7 @@ class AclServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands($this->commands);
+        //
     }
 }
+

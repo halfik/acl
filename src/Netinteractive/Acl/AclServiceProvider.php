@@ -21,10 +21,15 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(\Illuminate\Routing\Router $router)
     {
+
+        $config     = realpath(__DIR__.'/../../config/resources.php');
+
+        $this->mergeConfigFrom($config, 'netinteractive.sentry');
+
         $this->publishes([
             __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
         ], 'config');
-
+        
         $this->publishes([
             __DIR__.'/../../migrations/' => base_path('/database/migrations')
         ], 'migrations');
@@ -33,7 +38,8 @@ class AclServiceProvider extends ServiceProvider
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 
-	/**
+
+    /**
 	 * Register the service provider.
 	 *
 	 * @return void

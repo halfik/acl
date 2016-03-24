@@ -1,7 +1,7 @@
 <?php
 return array(
     #Panel Admninistracyjny
-    array(
+    /*array(
         'name' => _('Panel Administracyjny'),
         'value' =>'DashboardsController',
         'roles' => array('admin'),
@@ -11,5 +11,5 @@ return array(
                 'value' => 'DashboardController@index'
             ),
         )
-    ),
+    ),*/
 );

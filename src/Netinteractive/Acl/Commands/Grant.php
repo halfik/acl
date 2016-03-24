@@ -49,7 +49,8 @@ class Grant extends Command
      *
      * @return mixed
      */
-    public function fire(){
+    public function fire()
+    {
         $roleCode = $this->argument('roleCode');
         $roles = array();
 
@@ -61,7 +62,7 @@ class Grant extends Command
             $rolesList = \App::make('sentry')->getRoleProvider()->findAll();
 
             foreach($rolesList as $role){
-                $roles[]=$role->code;
+                $roles[] = $role->getCode();
             }
 
         }
@@ -73,11 +74,15 @@ class Grant extends Command
     /**
      * @param $roleCode
      */
-    protected function grantPermissions($roleCode){
+    protected function grantPermissions($roleCode)
+    {
         $role = \App::make('sentry')->getRoleProvider()->findByCode($roleCode);
 
         $permissions = array();
         $resources = \Config::get('resources');
+        $resources = \Config::get('netinteractive.acl');
+
+        var_dump($resources); exit;
 
         $this->makePermissions($permissions, $resources,$roleCode);
 
@@ -90,7 +95,8 @@ class Grant extends Command
      * @param $resources
      * @param $roleCode
      */
-    protected function makePermissions(&$permissions, &$resources, $roleCode, $parent=null){
+    protected function makePermissions(&$permissions, &$resources, $roleCode, $parent=null)
+    {
         foreach ($resources AS &$resource){
             if (isSet($resource['roles']) && !is_array($resource['roles'])){
                 $resource['roles'] = array_map('trim', explode(',', $resource['roles']));

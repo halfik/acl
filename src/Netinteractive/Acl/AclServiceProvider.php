@@ -3,7 +3,8 @@
 use Illuminate\Support\ServiceProvider;
 
 
-class AclServiceProvider extends ServiceProvider
+
+class AclServiceProvide2r extends ServiceProvider
 {
 
     /**
@@ -14,9 +15,9 @@ class AclServiceProvider extends ServiceProvider
     protected $defer = false;
 
 
-    protected $commands = [
+   /* protected $commands = [
         'Netinteractive\Acl\Commands\Grant',
-    ];
+    ];*/
 
     /**
      * Bootstrap the application events.
@@ -47,7 +48,7 @@ class AclServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+       // $this->commands($this->commands);
     }
 
     /**

@@ -77,12 +77,9 @@ class Grant extends Command
     protected function grantPermissions($roleCode)
     {
         $role = \App::make('sentry')->getRoleProvider()->findByCode($roleCode);
-
         $permissions = array();
         $resources = \Config::get('resources');
-        $resources = \Config::get('netinteractive.acl');
-
-        var_dump($resources); exit;
+       // $resources = \Config::get('netinteractive.acl');
 
         $this->makePermissions($permissions, $resources,$roleCode);
 

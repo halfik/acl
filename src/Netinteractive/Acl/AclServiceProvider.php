@@ -9,7 +9,14 @@ use Netinteractive\Acl\Permission\Record as Permission;
 
 class AclServiceProvider extends ServiceProvider
 {
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
+    
     protected $commands = [
         'Netinteractive\Acl\Commands\Grant',
     ];

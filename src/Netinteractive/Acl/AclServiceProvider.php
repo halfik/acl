@@ -10,13 +10,9 @@ use Netinteractive\Acl\Permission\Record as Permission;
 class AclServiceProvider extends ServiceProvider
 {
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
-
+    protected $commands = [
+        'Netinteractive\Acl\Commands\Grant',
+    ];
 
     /**
      * Bootstrap the application events.
@@ -44,26 +40,7 @@ class AclServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-        $this->app->singleton('ni.acl', function () {
-            return new Acl();
-        });
-
-        $this->app->bind('ni.acl.user', function () {
-            return new User();
-        });
-
-        $this->app->bind('ni.acl.role', function () {
-            return new Role();
-        });
-
-        $this->app->bind('ni.acl.permission', function () {
-            return new Permission();
-        });
-
-        $this->app->booting(function()
-        {
-            AliasLoader::getInstance()->alias('Acl','Netinteractive\Acl\Facades\AclFacade');
-        });
+        $this->commands($this->commands);
 	}
 
 	/**

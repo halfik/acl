@@ -9,9 +9,8 @@ class AclServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(\Illuminate\Routing\Router $router)
+    public function boot()
     {
-        $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
 
     /**

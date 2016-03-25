@@ -1,6 +1,6 @@
 <?php
 return array(
-    #Panel Admninistracyjny
+    #Sample admin panel
     /*array(
         'name' => _('Panel Administracyjny'),
         'value' =>'DashboardsController',

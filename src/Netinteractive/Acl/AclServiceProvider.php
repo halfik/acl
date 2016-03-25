@@ -11,6 +11,7 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
     }
 
     /**

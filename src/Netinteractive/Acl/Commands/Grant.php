@@ -80,8 +80,8 @@ class Grant extends Command
         $role = \App::make('sentry')->getRoleProvider()->findByCode($roleCode);
         $permissions = array();
 
-        $resources = config( AclServiceProvider::resourcesConfig() );
-
+        $resources = \Config::get('packages.netinteractive.acl.resources');
+        
         $this->makePermissions($permissions, $resources,$roleCode);
 
         $role->setPermissionsAttribute($permissions, true);

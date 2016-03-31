@@ -10,9 +10,10 @@ ACL
 
 ## Changelog
  
-* 1.0.1
+* 1.0.1 - 1.0.2
    
-        Fixed config usage bug. Grant command used package config insted of published one.
+        Fixed config usage bug. Grant command used package config instead of published one.
+        Fixed config merge.
     
 * 1.0.0
         

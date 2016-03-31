@@ -4,8 +4,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AclServiceProvider extends ServiceProvider
 {
-    public static $RESOURCES_CONFIG = 'packages.netinteractive.acl.resources';
-
     protected $commands = [
         'Netinteractive\Acl\Commands\Grant',
     ];
@@ -18,8 +16,9 @@ class AclServiceProvider extends ServiceProvider
     public function boot(\Illuminate\Routing\Router $router)
     {
         $this->publishes([
-            __DIR__.'/../../config/resources.php' => config_path(self::resourcesConfig(false)),
-        ], 'config');
+            __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
+        ], 'netinteractive.acl');
+
 
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
@@ -50,7 +49,7 @@ class AclServiceProvider extends ServiceProvider
     {
         $config = realpath(__DIR__.'/../../config/resources.php');;
 
-        $this->mergeConfigFrom($config, 'netinteractive.acl');
+        $this->mergeConfigFrom($config, 'packages.netinteractive.acl');
 
         $this->commands($this->commands);
     }

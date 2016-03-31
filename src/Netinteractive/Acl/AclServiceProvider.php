@@ -22,7 +22,7 @@ class AclServiceProvider extends ServiceProvider
 
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
-    
+
 
     /**
      * Register the application services.
@@ -33,7 +33,7 @@ class AclServiceProvider extends ServiceProvider
     {
         $config = realpath(__DIR__.'/../../config/resources.php');;
 
-        $this->mergeConfigFrom($config, 'packages.netinteractive.acl');
+        $this->mergeConfigFrom($config, 'packages.netinteractive.acl.resources');
 
         $this->commands($this->commands);
     }

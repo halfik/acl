@@ -81,7 +81,7 @@ class Grant extends Command
         $permissions = array();
 
         $resources = \Config::get('packages.netinteractive.acl.resources');
-        
+
         $this->makePermissions($permissions, $resources,$roleCode);
 
         $role->setPermissionsAttribute($permissions, true);

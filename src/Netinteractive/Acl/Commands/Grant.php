@@ -1,6 +1,7 @@
 <?php namespace Netinteractive\Acl\Commands;
 
 use \Illuminate\Console\Command;
+use Netinteractive\Acl\AclServiceProvider;
 use \Symfony\Component\Console\Input\InputOption;
 use \Symfony\Component\Console\Input\InputArgument;
 
@@ -79,8 +80,7 @@ class Grant extends Command
         $role = \App::make('sentry')->getRoleProvider()->findByCode($roleCode);
         $permissions = array();
 
-        $resources = config('netinteractive.acl');
-
+        $resources = config( AclServiceProvider::resourcesConfig() );
 
         $this->makePermissions($permissions, $resources,$roleCode);
 

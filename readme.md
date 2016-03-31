@@ -9,5 +9,11 @@ ACL
     
 
 ## Changelog
+ 
+* 1.0.1
+   
+        Fixed config usage bug. Grant command used package config insted of published one.
     
-* 1.0.0 : init
+* 1.0.0
+        
+        init

@@ -22,23 +22,7 @@ class AclServiceProvider extends ServiceProvider
 
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');
     }
-
-    /**
-     * Returns path to resources config. Use $dotNotnation true for \Config::get()
-     * and false for config_path()
-     * @param bool $dotNotation
-     * @return string
-     */
-    public static function resourcesConfig($dotNotation=true)
-    {
-        $response = self::$RESOURCES_CONFIG;
-
-        if (!$dotNotation){
-            $response = '/'.str_replace('.', '/', $response).'.php';
-        }
-
-        return $response;
-    }
+    
 
     /**
      * Register the application services.

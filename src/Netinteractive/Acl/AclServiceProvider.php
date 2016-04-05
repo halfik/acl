@@ -17,7 +17,7 @@ class AclServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/resources.php' => config_path('/packages/netinteractive/acl/resources.php'),
-        ], 'netinteractive.acl');
+        ], 'config');
 
 
         $router->middleware('ni.acl', 'Netinteractive\Acl\Middleware\Route');

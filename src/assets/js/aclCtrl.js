@@ -25,14 +25,14 @@ angular.module('app')
 
         };
     }
-    ]);
+]);
 
 
 angular.module('app')
     .controller('aclEdit', ['$scope', '$state', 'roleService', function ($scope, $state, roleService) {
 
     }
-    ]);
+]);
 
 
 angular.module('app').config(

@@ -55,7 +55,12 @@ class AclAdminServiceProvider extends ServiceProvider
                 $configFilePath => config_path('/packages/netinteractive/acl/admin/'.$panelType.'/menu.php'),
             ], 'config');
         }
-
+        $combinerFilePath = __DIR__.'/../../config/admin/'.$panelType.'/combiner.php';
+        if (file_exists($combinerFilePath)){
+            $this->publishes([
+                $combinerFilePath => config_path('/packages/netinteractive/acl/admin/'.$panelType.'/combiner.php'),
+            ], 'config');
+        }
     }
 
     /**
@@ -68,6 +73,11 @@ class AclAdminServiceProvider extends ServiceProvider
         $configFilePath = __DIR__.'/../../config/admin/'.$panelType.'/menu.php';
         if (file_exists($configFilePath)){
             $this->mergeConfigFrom($configFilePath, 'packages.netinteractive.admin.'.$panelType.'.menu');
+        }
+
+        $combinerFilePath = __DIR__.'/../../config/admin/'.$panelType.'/combiner.php';
+        if (file_exists($combinerFilePath)){
+            $this->mergeRecursiveConfigFrom($combinerFilePath, 'packages.netinteractive.combiner.config');
         }
     }
 
@@ -96,5 +106,18 @@ class AclAdminServiceProvider extends ServiceProvider
             __DIR__ . '/../../assets/js' => public_path('packages/netinteractive/acl/')
         ], 'public');
 
+    }
+
+    /**
+     * Merge the given configuration with the existing configuration.
+     *
+     * @param  string  $path
+     * @param  string  $key
+     * @return void
+     */
+    protected function mergeRecursiveConfigFrom($path, $key)
+    {
+        $config = $this->app['config']->get($key, []);
+        $this->app['config']->set($key, array_merge_recursive(require $path, $config));
     }
 }

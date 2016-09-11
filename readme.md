@@ -10,6 +10,9 @@ ACL
 
 ## Changelog
 
+* 1.0.7
+    fixed "illuminate/support" dependency so package can work with Laravel 5.3+
+
 * 1.0.6
     removed utils dependency
 

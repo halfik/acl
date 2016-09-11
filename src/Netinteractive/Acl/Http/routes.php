@@ -1,6 +1,6 @@
 <?php
 Route::group(array('prefix' => 'acl'), function(){
-    Route::get('index', [
+    /*Route::get('index', [
         //'middleware' => 'ni.acl',
         'as' => 'Netinteractive\Acl\Http\Controllers\AclController@index',
         'uses' => function (){
@@ -23,7 +23,7 @@ Route::group(array('prefix' => 'acl'), function(){
 
             return \Utils::runAction('Netinteractive\Acl\Http\Controllers\AclController@edit', $params);
         }
-    ]);
+    ]);*/
 });
 
 
